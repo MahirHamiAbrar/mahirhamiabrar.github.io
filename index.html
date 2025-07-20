@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahir Abrar - Software Engineer | AI Systems Builder</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #0a0a0a;
+            --secondary-bg: #111111;
+            --accent-bg: #1a1a1a;
+            --primary-text: #ffffff;
+            --secondary-text: #b0b0b0;
+            --accent-color: #00d4ff;
+            --accent-gradient: linear-gradient(135deg, #00d4ff, #7c3aed);
+            --glow-color: rgba(0, 212, 255, 0.3);
+            --border-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-bg);
+            color: var(--primary-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .background-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            opacity: 0.1;
+            filter: blur(80px);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .bg-circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .bg-circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: -7s;
+        }
+
+        .bg-circle:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(30px) rotate(240deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+        }
+
+        .hero-points {
+            text-align: left;
+            margin: 2rem 0;
+            font-size: 1.1rem;
+        }
+
+        .hero-points p {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-points p::before {
+            content: '→';
+            color: var(--accent-color);
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 20px var(--glow-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary-text);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 30px var(--glow-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .project-details-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--secondary-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 20px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.8) translateY(50px);
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 2rem 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: var(--secondary-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-color);
+            background: var(--accent-bg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-description {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--primary-text);
+        }
+
+        .modal-tech-stack {
+            margin-bottom: 2rem;
+        }
+
+        .modal-tech-stack h4 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .modal-tech-item {
+            background: var(--accent-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+        }
+
+        .modal-features {
+            margin-bottom: 2rem;
+        }
+
+        .modal-features h4 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-features li {
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .modal-features li::before {
+            content: '✓';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .modal-footer {
+            padding: 1rem 2rem 2rem 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .modal-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+        }
+
+        .modal-btn-secondary {
+            background: var(--accent-bg);
+            color: var(--primary-text);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .modal-btn-primary:hover {
+            box-shadow: 0 6px 20px var(--glow-color);
+        }
+
+        .modal-btn-secondary:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .modal-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .modal-btn:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text strong {
+            color: var(--accent-color);
+        }
+
+        .specializations {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .specializations li {
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .specializations li::before {
+            content: '▶';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--secondary-text);
+            margin-top: 0.5rem;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-category {
+            background: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .tech-category:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .tech-category h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tech-item {
+            background: var(--accent-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--secondary-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--accent-color);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .project-description {
+            color: var(--secondary-text);
+            line-height: 1.6;
+        }
+
+        .project-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            color: var(--secondary-text);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--accent-gradient);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="background-effects">
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">MAHIR</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#tech">Tech Stack</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>MAHIR ABRAR</h1>
+            <div class="subtitle">Software Engineer | AI Systems Builder | Open Infra Explorer</div>
+            
+            <div class="hero-points">
+                <p>I architect real-world AI tools from first principles.</p>
+                <p>I code in C++, Python, and curiosity.</p>
+                <p>Built IntelliTube – a YouTube-powered RAG AI with zero reliance on OpenAI APIs.</p>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-code"></i> View Projects
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-file-pdf"></i> Resume
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-brain"></i> Blog
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm currently pursuing my <strong>B.Sc. in Computer Science & Engineering at RUET</strong> (Rajshahi University of Engineering & Technology), where I focus on <strong>systems programming, embedded AI, and applied machine learning</strong>.</p>
+                
+                <p>Despite still being in academia, I've architected full-stack AI tools, built real-time microcontroller systems, and experimented with OS-level custom GUIs — all outside the classroom.</p>
+
+                <p>I specialize in:</p>
+                <ul class="specializations">
+                    <li><strong>RAG-based Chat Systems</strong> (LangGraph, LLMs, vector DBs)</li>
+                    <li><strong>Embedded Systems & Robotics</strong> (ESP32 + FreeRTOS)</li>
+                    <li><strong>System Programming</strong> (C++, Qt6, custom GUIs on Linux/X11)</li>
+                    <li><strong>Local-first AI infrastructure</strong> (LLM orchestration without OpenAI)</li>
+                </ul>
+
+                <p>My code is clean, my intent is loud, and I build for performance, not hype.</p>
+
+                <p>Currently building: <strong>IntelliTube</strong>, an LLM-powered platform that summarizes YouTube content using <strong>LangChain, Groq, and local models</strong> — zero fluff, 100% signal.</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">AI Projects Built</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Years Coding</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Tech Stack Tools</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Local-First AI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech" class="section">
+        <h2>Tech Stack</h2>
+        <div class="tech-grid">
+            <div class="tech-category">
+                <h3><i class="fas fa-code"></i> Languages</h3>
+                <div class="tech-list">
+                    <span class="tech-item">C++</span>
+                    <span class="tech-item">Python</span>
+                    <span class="tech-item">JavaScript</span>
+                    <span class="tech-item">TypeScript</span>
+                    <span class="tech-item">Bash</span>
+                </div>
+            </div>
+            
+            <div class="tech-category">
+                <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
+                <div class="tech-list">
+                    <span class="tech-item">FastAPI</span>
+                    <span class="tech-item">LangChain</span>
+                    <span class="tech-item">Qt6</span>
+                    <span class="tech-item">Next.js</span>
+                    <span class="tech-item">React</span>
+                </div>
+            </div>
+            
+            <div class="tech-category">
+                <h3><i class="fas fa-brain"></i> AI/LLMs</h3>
+                <div class="tech-list">
+                    <span class="tech-item">Llama 3</span>
+                    <span class="tech-item">Mistral</span>
+                    <span class="tech-item">Gemma</span>
+                    <span class="tech-item">Ollama</span>
+                    <span class="tech-item">Groq APIs</span>
+                </div>
+            </div>
+            
+            <div class="tech-category">
+                <h3><i class="fas fa-tools"></i> Tools</h3>
+                <div class="tech-list">
+                    <span class="tech-item">Git</span>
+                    <span class="tech-item">GCC</span>
+                    <span class="tech-item">pip</span>
+                    <span class="tech-item">Cargo</span>
+                    <span class="tech-item">npm</span>
+                    <span class="tech-item">tmux</span>
+                </div>
+            </div>
+            
+            <div class="tech-category">
+                <h3><i class="fas fa-desktop"></i> Systems</h3>
+                <div class="tech-list">
+                    <span class="tech-item">Linux (Arch + Fedora)</span>
+                    <span class="tech-item">X11</span>
+                    <span class="tech-item">FreeRTOS</span>
+                    <span class="tech-item">ESP32</span>
+                </div>
+            </div>
+            
+            <div class="tech-category">
+                <h3><i class="fas fa-microchip"></i> Hardware</h3>
+                <div class="tech-list">
+                    <span class="tech-item">RTX 3060</span>
+                    <span class="tech-item">Ryzen 5</span>
+                    <span class="tech-item">Embedded Boards</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="project-content">
+                    <div class="project-title">IntelliTube RAG System</div>
+                    <div class="project-description">
+                        YouTube-powered RAG AI that summarizes video content using LangChain, Groq APIs, and local LLMs. Zero OpenAI dependency, 100% local-first architecture.
+                    </div>
+                    <div class="project-links">
+                        <button class="btn btn-primary project-details-btn" onclick="openProjectModal('intellitube')">
+                            <i class="fas fa-info-circle"></i> View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="project-content">
+                    <div class="project-title">ESP32 IoT Dashboard</div>
+                    <div class="project-description">
+                        Real-time embedded system built with ESP32 and FreeRTOS. Features sensor data collection, wireless communication, and custom GUI interface.
+                    </div>
+                    <div class="project-links">
+                        <button class="btn btn-primary project-details-btn" onclick="openProjectModal('esp32')">
+                            <i class="fas fa-info-circle"></i> View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div class="project-content">
+                    <div class="project-title">Linux Custom GUI Framework</div>
+                    <div class="project-description">
+                        OS-level custom GUI built with C++ and Qt6 on Linux/X11. Features window management, custom theming, and system-level integrations.
+                    </div>
+                    <div class="project-links">
+                        <button class="btn btn-primary project-details-btn" onclick="openProjectModal('linux-gui')">
+                            <i class="fas fa-info-circle"></i> View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="project-content">
+                    <div class="project-title">ML Performance Optimizer</div>
+                    <div class="project-description">
+                        Python-based machine learning pipeline optimizer that reduces training time by 40% through intelligent batching and memory management.
+                    </div>
+                    <div class="project-links">
+                        <button class="btn btn-primary project-details-btn" onclick="openProjectModal('ml-optimizer')">
+                            <i class="fas fa-info-circle"></i> View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="project-content">
+                    <div class="project-title">Distributed Chat System</div>
+                    <div class="project-description">
+                        Real-time chat application built with FastAPI and WebSockets. Features end-to-end encryption, file sharing, and distributed architecture.
+                    </div>
+                    <div class="project-links">
+                        <button class="btn btn-primary project-details-btn" onclick="openProjectModal('chat-system')">
+                            <i class="fas fa-info-circle"></i> View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Let's Connect</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <a href="mailto:me@mahirabrar.dev">me@mahirabrar.dev</a>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-github"></i>
+                </div>
+                <h3>GitHub</h3>
+                <a href="https://github.com/MahirHamiAbrar" target="_blank">@MahirHamiAbrar</a>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/mahir-hami-abrar" target="_blank">in/mahir-hami-abrar</a>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <h3>Twitter</h3>
+                <a href="https://twitter.com/_abrarmind" target="_blank">@_abrarmind</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Mahir Abrar. Built with curiosity and caffeine. ⚡</p>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle" class="modal-title">Project Title</h3>
+                <button class="modal-close" onclick="closeProjectModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="modalProjectImage" class="modal-project-image">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div id="modalDescription" class="modal-description">
+                    Project description goes here...
+                </div>
+                <div class="modal-tech-stack">
+                    <h4><i class="fas fa-cogs"></i> Tech Stack</h4>
+                    <div id="modalTechStack" class="modal-tech-list">
+                        <!-- Tech stack items will be populated here -->
+                    </div>
+                </div>
+                <div class="modal-features">
+                    <h4><i class="fas fa-star"></i> Key Features</h4>
+                    <ul id="modalFeatures">
+                        <!-- Features will be populated here -->
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a id="modalLiveDemo" class="modal-btn modal-btn-secondary" href="#" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a id="modalGitHub" class="modal-btn modal-btn-primary" href="#" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrolled / maxHeight) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.9)';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Project Modal Functionality
+        const projectData = {
+            'intellitube': {
+                title: 'IntelliTube RAG System',
+                icon: 'fas fa-robot',
+                description: `IntelliTube is a sophisticated YouTube-powered Retrieval-Augmented Generation (RAG) AI system that revolutionizes how users consume video content. Built entirely with open-source technologies and local LLMs, it eliminates dependency on OpenAI APIs while delivering superior performance.
+
+                The system extracts transcripts from YouTube videos, processes them through advanced chunking algorithms, and creates semantic embeddings for efficient retrieval. Users can ask questions about video content and receive accurate, contextually relevant answers backed by specific timestamps and citations.
+
+                What sets IntelliTube apart is its local-first architecture - all processing happens on your hardware, ensuring privacy and reducing costs. The system supports multiple video formats, batch processing, and real-time question answering with sub-second response times.`,
+                techStack: ['Python', 'LangChain', 'Groq API', 'FAISS', 'Streamlit', 'YouTube API', 'Whisper', 'ChromaDB'],
+                features: [
+                    'Zero-dependency local LLM orchestration without OpenAI APIs',
+                    'Advanced RAG pipeline with semantic chunking and vector search',
+                    'Real-time transcript extraction and processing from YouTube videos',
+                    'Interactive chat interface with timestamp-based citations',
+                    'Batch video processing with intelligent content summarization',
+                    'Support for multiple LLM providers (Groq, Ollama, local models)',
+                    'Persistent vector database for efficient content retrieval',
+                    'Privacy-first architecture with all processing done locally'
+                ],
+                github: 'https://github.com/MahirHamiAbrar/intellitube-rag',
+                liveDemo: 'https://intellitube-demo.mahirabrar.dev',
+                hasDemo: true
+            },
+            'esp32': {
+                title: 'ESP32 IoT Dashboard',
+                icon: 'fas fa-microchip',
+                description: `A comprehensive IoT monitoring and control system built around the ESP32 microcontroller running FreeRTOS. This project demonstrates real-time embedded systems programming with wireless communication capabilities and advanced sensor integration.
+
+                The system features a multi-threaded architecture handling simultaneous sensor data collection, wireless communication, and user interface management. Built-in safety mechanisms ensure reliable operation even under adverse conditions.
+
+                The dashboard provides real-time visualization of sensor data, remote control capabilities, and automated alert systems. The entire system is designed for industrial-grade reliability with proper error handling and recovery mechanisms.`,
+                techStack: ['C++', 'ESP32', 'FreeRTOS', 'Arduino IDE', 'WebSocket', 'MQTT', 'React Dashboard', 'InfluxDB'],
+                features: [
+                    'Real-time sensor data collection (temperature, humidity, motion, light)',
+                    'Multi-threaded FreeRTOS implementation with task scheduling',
+                    'Wireless communication via WiFi and Bluetooth Low Energy',
+                    'Web-based dashboard with real-time data visualization',
+                    'MQTT protocol integration for IoT device management',
+                    'Over-the-air (OTA) firmware updates capability',
+                    'Advanced power management with deep sleep modes',
+                    'Industrial-grade error handling and system recovery'
+                ],
+                github: 'https://github.com/MahirHamiAbrar/esp32-iot-dashboard',
+                liveDemo: null,
+                hasDemo: false
+            },
+            'linux-gui': {
+                title: 'Linux Custom GUI Framework',
+                icon: 'fas fa-desktop',
+                description: `A custom GUI framework built from scratch for Linux systems using C++ and Qt6, interfacing directly with X11 for low-level window management. This project demonstrates deep system programming knowledge and understanding of Linux desktop environments.
+
+                The framework provides a complete windowing system with custom themes, advanced compositor effects, and seamless integration with existing Linux desktop environments. Built for performance and extensibility, it supports plugin architecture and custom widget development.
+
+                Features include custom window decorations, multi-monitor support, and hardware-accelerated rendering. The framework is designed to be lightweight yet powerful, suitable for both embedded systems and desktop applications.`,
+                techStack: ['C++17', 'Qt6', 'X11', 'OpenGL', 'CMake', 'Linux Kernel APIs', 'DBus', 'Wayland'],
+                features: [
+                    'Custom window manager with advanced compositor effects',
+                    'Direct X11 integration for low-level window manipulation',
+                    'Hardware-accelerated rendering with OpenGL support',
+                    'Plugin architecture for extensible widget development',
+                    'Multi-monitor support with independent workspace management',
+                    'Custom theming engine with real-time theme switching',
+                    'Integration with Linux system services via DBus',
+                    'Memory-efficient design optimized for embedded systems'
+                ],
+                github: 'https://github.com/MahirHamiAbrar/linux-custom-gui',
+                liveDemo: null,
+                hasDemo: false
+            },
+            'ml-optimizer': {
+                title: 'ML Performance Optimizer',
+                icon: 'fas fa-chart-line',
+                description: `An intelligent machine learning pipeline optimizer that significantly reduces training time and resource consumption through advanced batching strategies, memory management, and computational graph optimization.
+
+                The system analyzes ML workflows and automatically applies optimization techniques including dynamic batching, gradient accumulation, mixed-precision training, and intelligent caching. It supports major ML frameworks and provides seamless integration with existing training pipelines.
+
+                Through extensive benchmarking and profiling, the optimizer achieves up to 40% reduction in training time while maintaining model accuracy. The system includes detailed performance analytics and recommendations for further optimization.`,
+                techStack: ['Python', 'PyTorch', 'TensorFlow', 'CUDA', 'NumPy', 'Pandas', 'MLflow', 'Ray Tune'],
+                features: [
+                    'Automated pipeline analysis and bottleneck identification',
+                    'Dynamic batch size optimization based on memory constraints',
+                    'Mixed-precision training with automatic loss scaling',
+                    'Intelligent gradient accumulation and synchronization',
+                    'Memory-efficient data loading with prefetching strategies',
+                    'Comprehensive performance profiling and visualization',
+                    'Support for distributed training across multiple GPUs',
+                    'Integration with popular ML frameworks and experiment tracking'
+                ],
+                github: 'https://github.com/MahirHamiAbrar/ml-performance-optimizer',
+                liveDemo: null,
+                hasDemo: false
+            },
+            'chat-system': {
+                title: 'Distributed Chat System',
+                icon: 'fas fa-network-wired',
+                description: `A high-performance, distributed real-time chat application built with modern web technologies and microservices architecture. Features end-to-end encryption, file sharing, and horizontal scalability to support thousands of concurrent users.
+
+                The system implements WebSocket connections for real-time messaging, with automatic failover and load balancing. Built-in encryption ensures message privacy, while the distributed architecture provides high availability and fault tolerance.
+
+                Advanced features include message threading, file sharing with virus scanning, user presence indicators, and comprehensive admin controls. The system is designed for enterprise use with audit logging and compliance features.`,
+                techStack: ['FastAPI', 'WebSocket', 'Redis', 'PostgreSQL', 'Docker', 'Kubernetes', 'React', 'TypeScript'],
+                features: [
+                    'Real-time messaging with WebSocket connections and automatic reconnection',
+                    'End-to-end encryption using Signal Protocol for message privacy',
+                    'Distributed architecture with horizontal scaling capabilities',
+                    'File sharing with automatic virus scanning and size optimization',
+                    'Advanced user management with roles and permissions',
+                    'Message threading and conversation organization',
+                    'Comprehensive audit logging for compliance requirements',
+                    'Mobile-responsive design with Progressive Web App features'
+                ],
+                github: 'https://github.com/MahirHamiAbrar/distributed-chat-system',
+                liveDemo: 'https://chat-demo.mahirabrar.dev',
+                hasDemo: true
+            }
+        };
+
+        function openProjectModal(projectId) {
+            const project = projectData[projectId];
+            if (!project) return;
+
+            // Update modal content
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalProjectImage').innerHTML = `<i class="${project.icon}"></i>`;
+            document.getElementById('modalDescription').innerHTML = project.description.replace(/\n\s+/g, '<br><br>');
+            
+            // Update tech stack
+            const techStackContainer = document.getElementById('modalTechStack');
+            techStackContainer.innerHTML = project.techStack.map(tech => 
+                `<span class="modal-tech-item">${tech}</span>`
+            ).join('');
+            
+            // Update features
+            const featuresContainer = document.getElementById('modalFeatures');
+            featuresContainer.innerHTML = project.features.map(feature => 
+                `<li>${feature}</li>`
+            ).join('');
+            
+            // Update buttons
+            const githubBtn = document.getElementById('modalGitHub');
+            const demoBtn = document.getElementById('modalLiveDemo');
+            
+            githubBtn.href = project.github;
+            
+            if (project.hasDemo && project.liveDemo) {
+                demoBtn.href = project.liveDemo;
+                demoBtn.style.display = 'inline-flex';
+                demoBtn.disabled = false;
+            } else {
+                demoBtn.style.display = 'none';
+            }
+            
+            // Show modal
+            document.getElementById('projectModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            document.getElementById('projectModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('projectModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProjectModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProjectModal();
+            }
+        });
+
+        // Typing animation for hero section
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing animation when page loads
+        window.addEventListener('load', () => {
+            const subtitle = document.querySelector('.hero .subtitle');
+            if (subtitle) {
+                const originalText = subtitle.textContent;
+                typeWriter(subtitle, originalText, 80);
+            }
+        });
+
+        // Add scroll reveal animations
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.project-card, .tech-category, .contact-card, .stat-card');
+            
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('fade-in-up');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+
+        // Add particle effects to background
+        function createParticles() {
+            const particleContainer = document.querySelector('.background-effects');
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.cssText = `
+                    position: absolute;
+                    width: 2px;
+                    height: 2px;
+                    background: var(--accent-color);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    opacity: 0.3;
+                    animation: particleFloat ${10 + Math.random() * 10}s infinite linear;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    animation-delay: ${Math.random() * 10}s;
+                `;
+                particleContainer.appendChild(particle);
+            }
+        }
+
+        // Add particle animation CSS
+        const particleStyle = document.createElement('style');
+        particleStyle.textContent = `
+            @keyframes particleFloat {
+                0% {
+                    transform: translateY(100vh) rotate(0deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 0.3;
+                }
+                90% {
+                    opacity: 0.3;
+                }
+                100% {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(particleStyle);
+
+        // Initialize particles
+        createParticles();
+
+        // Add mobile menu toggle functionality
+        function createMobileMenu() {
+            const nav = document.querySelector('nav .nav-container');
+            const navLinks = document.querySelector('.nav-links');
+            
+            // Create mobile menu button
+            const mobileMenuBtn = document.createElement('button');
+            mobileMenuBtn.className = 'mobile-menu-btn';
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileMenuBtn.style.cssText = `
+                display: none;
+                background: transparent;
+                border: none;
+                color: var(--primary-text);
+                font-size: 1.5rem;
+                cursor: pointer;
+                padding: 0.5rem;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+            `;
+            
+            // Insert mobile menu button
+            nav.appendChild(mobileMenuBtn);
+            
+            // Mobile menu styles
+            const mobileStyle = document.createElement('style');
+            mobileStyle.textContent = `
+                @media (max-width: 768px) {
+                    .mobile-menu-btn {
+                        display: block !important;
+                    }
+                    
+                    .nav-links {
+                        position: fixed;
+                        top: 70px;
+                        right: -300px;
+                        width: 250px;
+                        height: calc(100vh - 70px);
+                        background: var(--secondary-bg);
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: center;
+                        padding-top: 2rem;
+                        gap: 1.5rem;
+                        border-left: 1px solid var(--border-color);
+                        transition: right 0.3s ease;
+                        z-index: 999;
+                    }
+                    
+                    .nav-links.active {
+                        right: 0;
+                    }
+                    
+                    .nav-links a {
+                        font-size: 1.2rem;
+                        padding: 1rem;
+                        width: 100%;
+                        text-align: center;
+                        border-bottom: 1px solid var(--border-color);
+                    }
+                }
+            `;
+            document.head.appendChild(mobileStyle);
+            
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.className = navLinks.classList.contains('active') 
+                    ? 'fas fa-times' 
+                    : 'fas fa-bars';
+            });
+            
+            // Close mobile menu when clicking on links
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                });
+            });
+        }
+
+        // Initialize mobile menu
+        createMobileMenu();
+
+        // Add loading screen
+        function createLoadingScreen() {
+            const loader = document.createElement('div');
+            loader.id = 'pageLoader';
+            loader.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--primary-bg);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                transition: opacity 0.5s ease;
+            `;
+            
+            loader.innerHTML = `
+                <div style="
+                    width: 50px;
+                    height: 50px;
+                    border: 3px solid var(--border-color);
+                    border-top: 3px solid var(--accent-color);
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                    margin-bottom: 1rem;
+                "></div>
+                <div style="
+                    color: var(--accent-color);
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                ">Loading Portfolio...</div>
+            `;
+            
+            document.body.appendChild(loader);
+            
+            // Add spin animation
+            const spinStyle = document.createElement('style');
+            spinStyle.textContent = `
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(spinStyle);
+            
+            // Remove loader after page loads
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.remove();
+                    }, 500);
+                }, 1000);
+            });
+        }
+
+        // Initialize loading screen
+        createLoadingScreen();
+
+        // Add Easter egg - Konami code
+        let konamiCode = [];
+        const konamiSequence = [
+            'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 
+            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 
+            'KeyB', 'KeyA'
+        ];
+
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.code);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
+                // Easter egg activated!
+                document.body.style.animation = 'rainbow 2s infinite';
+                
+                const easterEggStyle = document.createElement('style');
+                easterEggStyle.textContent = `
+                    @keyframes rainbow {
+                        0% { filter: hue-rotate(0deg); }
+                        100% { filter: hue-rotate(360deg); }
+                    }
+                `;
+                document.head.appendChild(easterEggStyle);
+                
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                    easterEggStyle.remove();
+                }, 4000);
+                
+                // Reset the code
+                konamiCode = [];
+            }
+        });
+
+        // Add contact form functionality (if you decide to add one later)
+        function initContactForm() {
+            const contactForms = document.querySelectorAll('.contact-form');
+            contactForms.forEach(form => {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Simple form validation and submission
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData);
+                    
+                    // Show success message
+                    const successMsg = document.createElement('div');
+                    successMsg.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: var(--accent-gradient);
+                        color: white;
+                        padding: 1rem 2rem;
+                        border-radius: 10px;
+                        box-shadow: 0 10px 30px var(--glow-color);
+                        z-index: 1000;
+                        animation: slideInRight 0.5s ease;
+                    `;
+                    successMsg.textContent = 'Message sent successfully!';
+                    
+                    document.body.appendChild(successMsg);
+                    
+                    setTimeout(() => {
+                        successMsg.remove();
+                    }, 3000);
+                });
+            });
+        }
+
+        // Initialize contact form
+        initContactForm();
+
+        // Add theme toggle functionality
+        function createThemeToggle() {
+            const themeToggle = document.createElement('button');
+            themeToggle.className = 'theme-toggle';
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            themeToggle.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: var(--accent-gradient);
+                border: none;
+                color: white;
+                font-size: 1.2rem;
+                cursor: pointer;
+                box-shadow: 0 4px 20px var(--glow-color);
+                transition: all 0.3s ease;
+                z-index: 1000;
+            `;
+            
+            document.body.appendChild(themeToggle);
+            
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                const icon = themeToggle.querySelector('i');
+                icon.className = document.body.classList.contains('light-theme') 
+                    ? 'fas fa-sun' 
+                    : 'fas fa-moon';
+            });
+            
+            // Light theme styles
+            const lightThemeStyle = document.createElement('style');
+            lightThemeStyle.textContent = `
+                body.light-theme {
+                    --primary-bg: #ffffff;
+                    --secondary-bg: #f8f9fa;
+                    --accent-bg: #e9ecef;
+                    --primary-text: #212529;
+                    --secondary-text: #6c757d;
+                    --border-color: #dee2e6;
+                }
+            `;
+            document.head.appendChild(lightThemeStyle);
+        }
+
+        // Initialize theme toggle
+        createThemeToggle();
+
+        console.log('🚀 Portfolio loaded successfully!');
+        console.log('💻 Built with curiosity and caffeine by Mahir Abrar');
+        console.log('🔗 Connect with me: https://github.com/MahirHamiAbrar');
+    </script>
+</body>
+</html>
