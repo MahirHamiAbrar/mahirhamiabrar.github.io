@@ -101,6 +101,24 @@ const projectData = {
         hasDemo: false
     },
 
+    "WebSummarizerTool": {
+        "title": "WebSummarizerTool",
+        "icon": "fas fa-brain",
+        "description": "A powerful web search and summarization tool that uses Ollama models to optimize search queries, retrieve web content, and generate comprehensive summaries from multiple sources.",
+        "techStack": ["Python", "Streamlit", "Ollama", "Google Search API", "HTML", "CSS", "JavaScript"],
+        "features": [
+            "AI-powered query optimization for improved search results",
+            "Multi-source web content fetching and summarization",
+            "Consolidated summaries combining individual results",
+            "Export results in JSON or Markdown formats",
+            "Configurable Ollama models for summarization",
+            "User-friendly Streamlit interface"
+        ],
+        "github": "https://github.com/MahirHamiAbrar/WebSummarizerTool",
+        "liveDemo": null,
+        "hasDemo": false
+    },
+
     'ImageToAsciiGui': {
         title: 'Image to ASCII Art Converter with GUI',
         icon: 'fas fa-image',
