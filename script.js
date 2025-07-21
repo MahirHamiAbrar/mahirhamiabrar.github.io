@@ -151,9 +151,7 @@ const projectData = {
         image: "images/vscode-blur-linux.png",
         description: `A minimal VS Code extension for Linux that enables transparency and blur effects on the editor window, offering a visually seamless integration with KDE Plasma desktops.
 
-        The extension leverages native Linux tools like wmctrl and xprop to adjust window opacity and applies KWin blur effects if enabled in the compositor. Opacity level and blur can be customized directly from VS Code settings. The extension is lightweight, requires no patching, and respects system-level configuration.
-
-        Designed for KDE users and tested on Plasma environments, it also provides universal transparency across all window managers. GNOME support is planned for future updates.`,
+        This extension is available to download in <a href="https://marketplace.visualstudio.com/items?itemName=mhabrar.vscode-blur-linux">Visual Studio's marketplace</a> since 2022 and has been downloaded <strong>over 15k times</strong> as of July, 2025.`,
         techStack: ['VSCode Extension API', 'Bash', 'wmctrl', 'xprop', 'Linux Desktop (KDE)', 'JavaScript'],
         features: [
             'Adjustable VSCode window transparency across Linux distros',
