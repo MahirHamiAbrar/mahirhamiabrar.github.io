@@ -51,48 +51,50 @@ document.querySelectorAll('.section').forEach(section => {
 // Project Modal Functionality
 const projectData = {
     'intellitube': {
-        title: 'IntelliTube RAG System',
-        icon: 'fas fa-robot',
-        description: `IntelliTube is a sophisticated YouTube-powered Retrieval-Augmented Generation (RAG) AI system that revolutionizes how users consume video content. Built entirely with open-source technologies and local LLMs, it eliminates dependency on OpenAI APIs while delivering superior performance.
+        title: 'IntelliTube',
+        // icon: 'fas fa-robot',
+        image: "images/intellitube.png",
+        description: `IntelliTube is a sophisticated Retrieval-Augmented Generation (RAG) AI system that revolutionizes how users consume video content. Built entirely with open-source technologies and can work completely offline if using local LLMs. Alongside videos, it can also work with any document, websites and even audio.
 
-        The system extracts transcripts from YouTube videos, processes them through advanced chunking algorithms, and creates semantic embeddings for efficient retrieval. Users can ask questions about video content and receive accurate, contextually relevant answers backed by specific timestamps and citations.
-
-        What sets IntelliTube apart is its local-first architecture - all processing happens on your hardware, ensuring privacy and reducing costs. The system supports multiple video formats, batch processing, and real-time question answering with sub-second response times.`,
-        techStack: ['Python', 'LangChain', 'Groq API', 'FAISS', 'Streamlit', 'YouTube API', 'Whisper', 'ChromaDB'],
+        The system extracts transcripts from YouTube videos or transcribes provided audio files, processes them through advanced chunking algorithms, and creates semantic embeddings for efficient retrieval. Users can ask questions about video content and receive accurate, contextually relevant answers backed by specific timestamps and citations.`,
+        techStack: ['Python', 'LangChain', 'LangGraph', 'Qdrant Vector Database', 'Groq API', 'Gemini API', 'Ollama', 'Streamlit', 'yt-dlp'],
         features: [
-            'Zero-dependency local LLM orchestration without OpenAI APIs',
-            'Advanced RAG pipeline with semantic chunking and vector search',
-            'Real-time transcript extraction and processing from YouTube videos',
-            'Interactive chat interface with timestamp-based citations',
-            'Batch video processing with intelligent content summarization',
-            'Support for multiple LLM providers (Groq, Ollama, local models)',
-            'Persistent vector database for efficient content retrieval',
-            'Privacy-first architecture with all processing done locally'
+            'Modular RAG system capable of handling YouTube videos, PDFs, code files, audio, and more',
+            'Multi-query expansion and self-querying techniques to improve retrieval relevance',
+            'Integrated summarization for both document-wide and chat-level understanding',
+            'Hierarchical chunking with metadata tracking and parent-child document reconstruction',
+            'Custom prompt design for query rewriting, retrieval, and response generation',
+            'Vector database integration (Qdrant) with precise filtering and chunk-level retrieval',
+            'Real-time YouTube transcript parsing and timestamp-aware citation support',
+            'LLM-agnostic backend compatible with Groq, local models (Ollama), and future providers',
+            'Local-first execution with complete privacy — but recommended to use a powerful LLM for superior performance.'
         ],
-        github: 'https://github.com/MahirHamiAbrar/intellitube-rag',
-        liveDemo: 'https://intellitube-demo.mahirabrar.dev',
-        hasDemo: true
+
+        github: 'https://github.com/MahirHamiAbrar/intellitube',
+        // liveDemo: 'https://intellitube-demo.vecel.app',
+        hasDemo: false
     },
-    'esp32': {
-        title: 'ESP32 IoT Dashboard',
-        icon: 'fas fa-microchip',
-        description: `A comprehensive IoT monitoring and control system built around the ESP32 microcontroller running FreeRTOS. This project demonstrates real-time embedded systems programming with wireless communication capabilities and advanced sensor integration.
+    'BitFestTeamExpelledSolutions': {
+        title: 'Banglish to Bangla Translator AI Model',
+        // icon: 'fas fa-microchip',
+        icon: 'fas fa-robot',
+        description: `
+        This project was built as part of the KUET's Bitfest 2024 Hackathon's Challenge 1. It involves fine-tuning the mbart-large-50 model — an encoder-decoder transformer that supports 50 languages — for the task of Banglish to Bangla transliteration. It was Trained using PyTorch and transformers libraries on a <a href="https://huggingface.co/datasets/SKNahin/bengali-transliteration-data" target="_blank">publicly available dataset on Hugging Face</a> provided by Bitfest's organizing authority. The model outputs somwhat accurate readable Bangla text from informal Romanized Bengali input. Despite limited training time and compute, it serves as a functional prototype and proof-of-concept for multilingual sequence-to-sequence learning.
 
-        The system features a multi-threaded architecture handling simultaneous sensor data collection, wireless communication, and user interface management. Built-in safety mechanisms ensure reliable operation even under adverse conditions.
-
-        The dashboard provides real-time visualization of sensor data, remote control capabilities, and automated alert systems. The entire system is designed for industrial-grade reliability with proper error handling and recovery mechanisms.`,
-        techStack: ['C++', 'ESP32', 'FreeRTOS', 'Arduino IDE', 'WebSocket', 'MQTT', 'React Dashboard', 'InfluxDB'],
+        The model is available on <a href="https://huggingface.co/mhabrar/BitfestTeamExpelledSolutionMode" target="_blank">Hugging Face</a>.
+        `,
+        techStack: ['Python', 'PyTorch', 'transformers'],
         features: [
-            'Real-time sensor data collection (temperature, humidity, motion, light)',
-            'Multi-threaded FreeRTOS implementation with task scheduling',
-            'Wireless communication via WiFi and Bluetooth Low Energy',
-            'Web-based dashboard with real-time data visualization',
-            'MQTT protocol integration for IoT device management',
-            'Over-the-air (OTA) firmware updates capability',
-            'Advanced power management with deep sleep modes',
-            'Industrial-grade error handling and system recovery'
+            'Fine-tuned multilingual mBART model for Banglish-to-Bangla transliteration',
+            'Utilizes open-source transliteration dataset from Hugging Face',
+            'Works in low-resource environments (T4 GPU with minimal compute)',
+            'Training pipeline built entirely with Hugging Face Transformers and Datasets',
+            'Loss reduced to 0.85 within just 1000 steps of training',
+            'Deployable via Hugging Face Model Hub for easy experimentation',
+            'Optimized for quick inference on short-form user input text',
+            'Supports future extensions to other Indic languages with minimal changes'
         ],
-        github: 'https://github.com/MahirHamiAbrar/esp32-iot-dashboard',
+        github: 'https://github.com/MahirHamiAbrar/Bitfestteamexpelledsolutions',
         liveDemo: null,
         hasDemo: false
     },
@@ -173,7 +175,11 @@ function openProjectModal(projectId) {
 
     // Update modal content
     document.getElementById('modalTitle').textContent = project.title;
-    document.getElementById('modalProjectImage').innerHTML = `<i class="${project.icon}"></i>`;
+    if (project.icon) {
+        document.getElementById('modalProjectImage').innerHTML = `<i class="${project.icon}"></i>`;
+    } else {
+        document.getElementById('modalProjectImage').innerHTML = `<div class="project-image"><img src="${project.image}" alt="image"></div>`;
+    }
     document.getElementById('modalDescription').innerHTML = project.description.replace(/\n\s+/g, '<br><br>');
     
     // Update tech stack
