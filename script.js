@@ -74,10 +74,12 @@ const projectData = {
         // liveDemo: 'https://intellitube-demo.vecel.app',
         hasDemo: false
     },
+    
     'BitFestTeamExpelledSolutions': {
         title: 'Banglish to Bangla Translator AI Model',
         // icon: 'fas fa-microchip',
-        icon: 'fas fa-robot',
+        // icon: 'fas fa-robot',
+        image: "images/bitfestchallenge1.png",
         description: `
         This project was built as part of the KUET's Bitfest 2024 Hackathon's Challenge 1. It involves fine-tuning the mbart-large-50 model — an encoder-decoder transformer that supports 50 languages — for the task of Banglish to Bangla transliteration. It was Trained using PyTorch and transformers libraries on a <a href="https://huggingface.co/datasets/SKNahin/bengali-transliteration-data" target="_blank">publicly available dataset on Hugging Face</a> provided by Bitfest's organizing authority. The model outputs somwhat accurate readable Bangla text from informal Romanized Bengali input. Despite limited training time and compute, it serves as a functional prototype and proof-of-concept for multilingual sequence-to-sequence learning.
 
@@ -98,7 +100,8 @@ const projectData = {
         liveDemo: null,
         hasDemo: false
     },
-    'linux-gui': {
+
+    'ImageToAsciiGui': {
         title: 'Linux Custom GUI Framework',
         icon: 'fas fa-desktop',
         description: `A custom GUI framework built from scratch for Linux systems using C++ and Qt6, interfacing directly with X11 for low-level window management. This project demonstrates deep system programming knowledge and understanding of Linux desktop environments.
@@ -117,55 +120,100 @@ const projectData = {
             'Integration with Linux system services via DBus',
             'Memory-efficient design optimized for embedded systems'
         ],
-        github: 'https://github.com/MahirHamiAbrar/linux-custom-gui',
+        github: 'https://github.com/MahirHamiAbrar/ImageToAsciiGui',
         liveDemo: null,
         hasDemo: false
     },
-    'ml-optimizer': {
-        title: 'ML Performance Optimizer',
-        icon: 'fas fa-chart-line',
-        description: `An intelligent machine learning pipeline optimizer that significantly reduces training time and resource consumption through advanced batching strategies, memory management, and computational graph optimization.
 
-        The system analyzes ML workflows and automatically applies optimization techniques including dynamic batching, gradient accumulation, mixed-precision training, and intelligent caching. It supports major ML frameworks and provides seamless integration with existing training pipelines.
+    'vscode-blur-linux': {
+        title: 'VSCode Window Style Customization Extension',
+        // icon: 'fas fa-window-maximize',
+        image: "images/vscode-blur-linux.png",
+        description: `A minimal VS Code extension for Linux that enables transparency and blur effects on the editor window, offering a visually seamless integration with KDE Plasma desktops.
 
-        Through extensive benchmarking and profiling, the optimizer achieves up to 40% reduction in training time while maintaining model accuracy. The system includes detailed performance analytics and recommendations for further optimization.`,
-        techStack: ['Python', 'PyTorch', 'TensorFlow', 'CUDA', 'NumPy', 'Pandas', 'MLflow', 'Ray Tune'],
+        The extension leverages native Linux tools like wmctrl and xprop to adjust window opacity and applies KWin blur effects if enabled in the compositor. Opacity level and blur can be customized directly from VS Code settings. The extension is lightweight, requires no patching, and respects system-level configuration.
+
+        Designed for KDE users and tested on Plasma environments, it also provides universal transparency across all window managers. GNOME support is planned for future updates.`,
+        techStack: ['VSCode Extension API', 'Bash', 'wmctrl', 'xprop', 'Linux Desktop (KDE)', 'JavaScript'],
         features: [
-            'Automated pipeline analysis and bottleneck identification',
-            'Dynamic batch size optimization based on memory constraints',
-            'Mixed-precision training with automatic loss scaling',
-            'Intelligent gradient accumulation and synchronization',
-            'Memory-efficient data loading with prefetching strategies',
-            'Comprehensive performance profiling and visualization',
-            'Support for distributed training across multiple GPUs',
-            'Integration with popular ML frameworks and experiment tracking'
+            'Adjustable VSCode window transparency across Linux distros',
+            'Native KDE Plasma blur support via KWin compositor integration',
+            'Zero external dependencies beyond standard Linux tools',
+            'Shell-based control using wmctrl and xprop for reliable behavior',
+            'Easily configurable via VSCode user settings',
+            'No need for custom patches, theme mods, or extensions like picom',
+            'Works out-of-the-box with most KDE setups',
+            'Lightweight and minimal performance overhead'
         ],
-        github: 'https://github.com/MahirHamiAbrar/ml-performance-optimizer',
+        github: 'https://github.com/MahirHamiAbrar/vscode-blur-linux',
         liveDemo: null,
         hasDemo: false
     },
-    'chat-system': {
-        title: 'Distributed Chat System',
-        icon: 'fas fa-network-wired',
-        description: `A high-performance, distributed real-time chat application built with modern web technologies and microservices architecture. Features end-to-end encryption, file sharing, and horizontal scalability to support thousands of concurrent users.
 
-        The system implements WebSocket connections for real-time messaging, with automatic failover and load balancing. Built-in encryption ensures message privacy, while the distributed architecture provides high availability and fault tolerance.
+    'SMSTrackerBot': {
+        title: 'To be Updated!',
+        icon: 'fas fa-info-circle',
+        description: ``,
+        techStack: [],
+        features: [],
+        github: 'https://github.com/MahirHamiAbrar/SMSTrackerBot',
+        liveDemo: null,
+        hasDemo: false
+    },
 
-        Advanced features include message threading, file sharing with virus scanning, user presence indicators, and comprehensive admin controls. The system is designed for enterprise use with audit logging and compliance features.`,
-        techStack: ['FastAPI', 'WebSocket', 'Redis', 'PostgreSQL', 'Docker', 'Kubernetes', 'React', 'TypeScript'],
-        features: [
-            'Real-time messaging with WebSocket connections and automatic reconnection',
-            'End-to-end encryption using Signal Protocol for message privacy',
-            'Distributed architecture with horizontal scaling capabilities',
-            'File sharing with automatic virus scanning and size optimization',
-            'Advanced user management with roles and permissions',
-            'Message threading and conversation organization',
-            'Comprehensive audit logging for compliance requirements',
-            'Mobile-responsive design with Progressive Web App features'
-        ],
-        github: 'https://github.com/MahirHamiAbrar/distributed-chat-system',
-        liveDemo: 'https://chat-demo.mahirabrar.dev',
-        hasDemo: true
+    'DriftAI': {
+        title: 'To be Updated!',
+        icon: 'fas fa-info-circle',
+        description: ``,
+        techStack: [],
+        features: [],
+        github: 'https://github.com/MahirHamiAbrar/DriftAI',
+        liveDemo: null,
+        hasDemo: false
+    },
+
+    'XpressionSolver': {
+        title: 'To be Updated!',
+        icon: 'fas fa-info-circle',
+        description: ``,
+        techStack: [],
+        features: [],
+        github: 'https://github.com/MahirHamiAbrar/XpressionSolver',
+        liveDemo: null,
+        hasDemo: false
+    },
+
+    'SmartAttendanceSystem': {
+        title: 'To be Updated!',
+        icon: 'fas fa-info-circle',
+        description: ``,
+        techStack: [],
+        features: [],
+        github: 'https://github.com/MahirHamiAbrar/SmartAttendanceSystem',
+        liveDemo: null,
+        hasDemo: false
+    },
+
+    'AIFalcon': {
+        title: 'To be Updated!',
+        icon: 'fas fa-info-circle',
+        description: ``,
+        techStack: [],
+        features: [],
+        github: 'https://github.com/MahirHamiAbrar/AIFalcon',
+        liveDemo: null,
+        hasDemo: false
+    },
+
+    'blank': {
+        title: 'To be Updated!',
+        icon: 'fas fa-info-circle',
+        description: ``,
+        techStack: [],
+        features: [],
+        github: 'https://github.com/MahirHamiAbrar/',
+        liveDemo: null,
+        hasDemo: false
     }
 };
 
