@@ -102,23 +102,25 @@ const projectData = {
     },
 
     'ImageToAsciiGui': {
-        title: 'Linux Custom GUI Framework',
-        icon: 'fas fa-desktop',
-        description: `A custom GUI framework built from scratch for Linux systems using C++ and Qt6, interfacing directly with X11 for low-level window management. This project demonstrates deep system programming knowledge and understanding of Linux desktop environments.
+        title: 'Image to ASCII Art Converter with GUI',
+        icon: 'fas fa-image',
+        description: `ImageToAsciiGui is a Python desktop application that converts any image into ASCII art characters with a user-friendly graphical interface. The application provides an intuitive way to transform photos and images into text-based ASCII representations that can be used anywhere text is supported.
 
-        The framework provides a complete windowing system with custom themes, advanced compositor effects, and seamless integration with existing Linux desktop environments. Built for performance and extensibility, it supports plugin architecture and custom widget development.
+        Built with cross-platform compatibility in mind, the application works on both Linux and Windows systems. Users can easily select images, customize output settings like scaling and width, and preview the ASCII conversion in real-time within the application interface.
 
-        Features include custom window decorations, multi-monitor support, and hardware-accelerated rendering. The framework is designed to be lightweight yet powerful, suitable for both embedded systems and desktop applications.`,
-        techStack: ['C++17', 'Qt6', 'X11', 'OpenGL', 'CMake', 'Linux Kernel APIs', 'DBus', 'Wayland'],
+        The project features a clean, modern GUI that makes ASCII art creation accessible to users of all skill levels. With built-in text editor integration and flexible output options, ImageToAsciiGui bridges the gap between digital imagery and text-based art, perfect for terminal enthusiasts, ASCII art creators, and anyone looking to add a retro computing aesthetic to their projects.`,
+        techStack: ['Python', 'GUI Framework', 'Image Processing', 'ASCII Art Generation', 'Cross-platform Development', 'Virtual Environment'],
         features: [
-            'Custom window manager with advanced compositor effects',
-            'Direct X11 integration for low-level window manipulation',
-            'Hardware-accelerated rendering with OpenGL support',
-            'Plugin architecture for extensible widget development',
-            'Multi-monitor support with independent workspace management',
-            'Custom theming engine with real-time theme switching',
-            'Integration with Linux system services via DBus',
-            'Memory-efficient design optimized for embedded systems'
+            'Intuitive graphical user interface for easy image selection and conversion',
+            'Real-time ASCII art preview within the application window',
+            'Customizable image scaling and width adjustment options',
+            'Cross-platform compatibility (Windows and Linux support)',
+            'Built-in text editor integration for better ASCII art viewing',
+            'Flexible output file management and storage options',
+            'Support for various image formats and sizes',
+            'Clean, modern interface design with user-friendly controls',
+            'Virtual environment setup for isolated Python dependencies',
+            'Optimized for Python 3.6+ with comprehensive version compatibility'
         ],
         github: 'https://github.com/MahirHamiAbrar/ImageToAsciiGui',
         liveDemo: null,
@@ -151,55 +153,126 @@ const projectData = {
     },
 
     'SMSTrackerBot': {
-        title: 'To be Updated!',
-        icon: 'fas fa-info-circle',
-        description: ``,
-        techStack: [],
-        features: [],
+        title: 'Telegram Transaction Tracking & Google Sheets Integration Bot',
+        icon: 'fas fa-robot',
+        description: `SMSTrackerBot is a specialized Telegram bot designed to automatically extract and track transaction information from Telegram group messages. The bot intelligently parses financial transaction data from group conversations and seamlessly integrates with Google Sheets for organized record-keeping.
+
+        This automation tool is perfect for managing group finances, tracking shared expenses, or monitoring business transactions within Telegram communities. The bot continuously monitors designated Telegram groups, identifies transaction-related messages, and automatically logs the parsed data into structured Google Sheets.
+
+        Built with robust message parsing capabilities and reliable Google Sheets API integration, SMSTrackerBot eliminates manual transaction tracking and provides real-time financial data organization. The project demonstrates advanced bot development with third-party API integration and automated data processing workflows.`,
+        techStack: ['Python', 'Telegram Bot API', 'Google Sheets API', 'Message Parsing', 'Data Processing', 'Automation', 'API Integration'],
+        features: [
+            'Automated transaction information extraction from Telegram messages',
+            'Real-time monitoring of designated Telegram groups',
+            'Intelligent message parsing for financial data recognition',
+            'Seamless Google Sheets integration for data storage and organization',
+            'Automated data logging with structured formatting',
+            'Multi-group support for tracking various transaction sources',
+            'Robust error handling and message validation',
+            'Configurable parsing rules for different transaction formats',
+            'Real-time synchronization between Telegram and Google Sheets',
+            'Scalable architecture supporting high-volume message processing'
+        ],
         github: 'https://github.com/MahirHamiAbrar/SMSTrackerBot',
         liveDemo: null,
         hasDemo: false
     },
 
     'DriftAI': {
-        title: 'To be Updated!',
-        icon: 'fas fa-info-circle',
-        description: ``,
-        techStack: [],
-        features: [],
+        title: 'LLM-Powered Open Source AI Assistant',
+        icon: 'fas fa-microphone-alt',
+        description: `DriftAI is an innovative open-source AI assistant powered by Large Language Models (LLMs) that runs locally on your machine to enhance daily productivity tasks. Built specifically for Linux systems, it combines speech-to-text capabilities with local LLM processing to provide a privacy-focused AI assistant experience.
+
+        The project features a sleek floating window interface that stays accessible on your desktop, allowing voice interactions through a minimalist design. DriftAI prioritizes user privacy by running everything locally, ensuring that your conversations and data never leave your machine.
+
+        With its modular architecture and local processing capabilities, DriftAI represents a significant step towards democratizing AI assistance while maintaining complete user control over data and processing. The project is designed for power users who want the convenience of AI assistance without compromising on privacy or system resources.`,
+        techStack: ['Python', 'Large Language Models (LLM)', 'Speech-to-Text AI', 'Local AI Processing', 'GUI/Desktop Application', 'uv Package Manager', 'Linux System Integration'],
+        features: [
+            'Local LLM processing with no cloud dependencies for privacy',
+            'Real-time speech-to-text conversion and voice interaction',
+            'Minimalist floating window interface for easy desktop access',
+            'Expandable/collapsible UI design for optimal screen real estate',
+            'Local audio recording and processing capabilities',
+            'Configurable audio storage and processing settings',
+            'Hardware-optimized for systems with 8-16GB RAM and GPU acceleration',
+            'Open source architecture allowing custom LLM integration',
+            'Cross-platform foundation built on modern Python tooling',
+            'Privacy-first approach with all processing done on-device'
+        ],
         github: 'https://github.com/MahirHamiAbrar/DriftAI',
         liveDemo: null,
         hasDemo: false
     },
 
     'XpressionSolver': {
-        title: 'To be Updated!',
-        icon: 'fas fa-info-circle',
-        description: ``,
-        techStack: [],
-        features: [],
+        title: 'Step-by-Step Mathematical Expression Evaluator',
+        image: 'images/xpressionsolver.png',
+        description: `A Python-based mathematical expression evaluator that provides step-by-step solutions to complex mathematical expressions. The tool parses mathematical expressions provided as strings and evaluates them while showing the intermediate steps and calculations.
+
+        XpressionSolver handles various mathematical operations including basic arithmetic, parentheses, and operator precedence rules. It's designed to be educational, helping users understand how mathematical expressions are broken down and solved systematically.
+
+        The application features a clean command-line interface and can be easily extended to support additional mathematical functions and operations. Perfect for students, educators, and anyone who wants to understand the computational process behind mathematical expression evaluation.`,
+        techStack: ['Python', 'Command Line Interface'],
+        features: [
+            'Step-by-step breakdown of mathematical expression evaluation',
+            'Support for basic arithmetic operations (+, -, *, /)',
+            'Proper handling of operator precedence and parentheses',
+            'Clean and intuitive command-line interface',
+            'Educational tool for understanding expression parsing',
+            'Lightweight Python implementation with no external dependencies',
+            'Easy to extend for additional mathematical functions',
+            'Clear output showing intermediate calculation steps'
+        ],
         github: 'https://github.com/MahirHamiAbrar/XpressionSolver',
         liveDemo: null,
         hasDemo: false
     },
 
     'SmartAttendanceSystem': {
-        title: 'To be Updated!',
-        icon: 'fas fa-info-circle',
-        description: ``,
-        techStack: [],
-        features: [],
+        title: 'Fully Automated IoT-Based Attendance System',
+        icon: 'fas fa-user-check',
+        description: `SmartAttendanceSystem is a comprehensive IoT-based solution that automates the entire attendance tracking process for educational institutions and organizations. The system leverages Internet of Things technology to provide seamless, contactless attendance management without manual intervention.
+
+        Built with modern IoT architecture, the system integrates hardware sensors with cloud-based data processing to create a robust attendance tracking infrastructure. The solution eliminates traditional paper-based or manual digital attendance methods, reducing administrative overhead and increasing accuracy.
+
+        The system provides real-time attendance monitoring, automated data synchronization, and comprehensive reporting capabilities. With its scalable IoT framework, SmartAttendanceSystem can be deployed across multiple locations and integrated with existing institutional management systems, making it ideal for schools, universities, and corporate environments.`,
+        techStack: ['IoT Development', 'Embedded Systems', 'Cloud Integration', 'Real-time Data Processing', 'Hardware Programming', 'Database Management', 'Web Dashboard', 'API Development'],
+        features: [
+            'Fully automated attendance tracking with zero manual intervention',
+            'IoT sensor integration for contactless attendance detection',
+            'Real-time data synchronization with cloud-based storage',
+            'Comprehensive web dashboard for attendance management',
+            'Multi-location support with centralized data processing',
+            'Automated report generation and analytics',
+            'Integration capabilities with existing institutional systems',
+            'Scalable IoT architecture supporting multiple concurrent users',
+            'Real-time notifications and attendance alerts',
+            'Robust data security and privacy protection measures'
+        ],
         github: 'https://github.com/MahirHamiAbrar/SmartAttendanceSystem',
         liveDemo: null,
         hasDemo: false
     },
 
     'AIFalcon': {
-        title: 'To be Updated!',
-        icon: 'fas fa-info-circle',
-        description: ``,
-        techStack: [],
-        features: [],
+        title: 'Linux-Based AI Assistant with Machine Learning',
+        icon: 'fas fa-robot',
+        description: `AIFalcon is an intelligent AI assistant built specifically for Linux systems, utilizing machine learning algorithms to provide natural and interactive user experiences. The project demonstrates practical implementation of conversational AI technology using Python.
+
+        Designed as a Linux-native solution, AIFalcon leverages the power of machine learning to understand user queries and provide contextual responses. The AI is built to integrate seamlessly with Linux environments and can be extended to perform various system-level tasks and interactions.
+
+        This project showcases advanced AI development techniques and serves as a foundation for building more sophisticated AI assistants. AIFalcon represents a platform-specific approach to AI development, optimized for Linux systems' unique capabilities and architecture.`,
+        techStack: ['Python', 'Machine Learning', 'Natural Language Processing', 'Linux System Integration', 'AI/ML Libraries'],
+        features: [
+            'Machine learning-powered conversational AI interface',
+            'Linux-optimized architecture and system integration',
+            'Interactive user communication with contextual responses',
+            'Python-based implementation for easy extensibility',
+            'Designed specifically for Linux environments',
+            'Tested and validated on Ubuntu 18.04 LTS',
+            'Foundation for building advanced AI assistant features',
+            'Companion to AILaeo (Windows version) for cross-platform AI solutions'
+        ],
         github: 'https://github.com/MahirHamiAbrar/AIFalcon',
         liveDemo: null,
         hasDemo: false
